@@ -23,6 +23,7 @@ function alarmClockTime () {
 	// CSS styling in JS?
 	document.getElementById('result').style.color = "white";
 
+	// Display time to screen. Comment overkill.
 	document.getElementById('result').innerHTML = currentTimeDisplay;
 }
 
