@@ -1,5 +1,5 @@
 
-// Creates date object and prints formatted time to 'result' area.
+// Creates date object and prints formatted time to 'result' area Yay! It works!
 function alarmClockTime (_htmlElement) {
 	var htmlElement = _htmlElement;
 	var clock = new function() {}
