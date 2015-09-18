@@ -1,31 +1,65 @@
-// Adds '0' strings to hours, minutes, seconds values for formatting (00:00:00)
-function addZero(value) {
-    if(value < 10) {
-        return '0' + value;
-    } else {
-        return value;
-    }
-}
 
 // Creates date object and prints formatted time to 'result' area.
-function alarmClockTime () {
-	var currentTime = new Date();
-	var hour = currentTime.getHours();
-	var minutes = currentTime.getMinutes();
-	var seconds = currentTime.getSeconds();
+function alarmClockTime (_htmlElement) {
+	var htmlElement = _htmlElement;
+	var clock = new function() {}
+	var currentTime;
+	var hours;
+	var minutes;
+	var seconds;
+	var meridiem;
 	
-	// Ternary operator (?) for conditional statement to get meridiem.
-	var meridiem = currentTime.getHours() >= 12 ? "PM" : "AM";
-	
-	// Concatenated time string.
-	var currentTimeDisplay = addZero(hour) + ":" + addZero(minutes) + ":" + addZero(seconds) + " " + meridiem;
-	
-	// CSS styling in JS?
-	document.getElementById('result').style.color = "white";
+	// upDateTime holds date object and displays to screen
+	function updateTime() {
+		currentTime = new Date();
+		hours = retrieveHours();
+		minutes = retrieveMinutes();
+		seconds = retrieveSeconds();
+		meridiem = getMeridiem();
 
-	// Display time to screen. Comment overkill.
-	document.getElementById('result').innerHTML = currentTimeDisplay;
+		displayToScreen();	
+	}
+	
+	// formatTime
+	function formatTime(value) {
+    	if(value < 10) {
+        	return '0' + value;
+    	} else {
+        	return value;
+    	}
+	}
+	
+	// retrieveHours
+	function retrieveHours () {
+		h = parseInt(currentTime.getHours());
+		h12 = ((h + 23) % 12) + 1;
+		return formatTime(h12) + "*";
+	}
+	// retrieveMinutes
+	function retrieveMinutes() {
+		m = formatTime(currentTime.getMinutes()) + "*";
+		return m;
+	}
+	// retrieveSeconds
+	function retrieveSeconds() {
+		s = formatTime(currentTime.getSeconds());
+		return s;
+	}
+	
+	// getMeridiem
+	function getMeridiem () {
+		var meridiem_ternary = currentTime.getHours() >= 12 ? "PM" : "AM";
+		return meridiem_ternary;
+	}
+
+	// displayToScreen
+	function displayToScreen () {
+		var currentTimeDisplay = hours + minutes + seconds + " " + meridiem;
+		document.getElementById(htmlElement).innerHTML = currentTimeDisplay;
+		
+	}
+	// Sets updateTime every second
+	setInterval(updateTime, 1000);
+
 }
 
-// setInterval() runs function every x milliseconds (e.g. 1000 ms = 1 second).
-setInterval(function () {alarmClockTime()}, 1000);
