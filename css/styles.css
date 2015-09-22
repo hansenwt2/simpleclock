@@ -10,7 +10,7 @@
     padding: 0;
 }
 
-body { font: 14px/1.4 arial, sans-serif;     background-color: #F5F5F5; }
+body { font: 14px/1.4 arial, sans-serif;     background-color: white; }
 
 article, aside, figure, footer, header, nav, section { display: block; }
 a:link, a:visited {
@@ -109,7 +109,8 @@ a:hover, a:active {
 
 /* page styles */
 article {margin: 5%;}
-article p { margin-bottom: 20px;}
+article h1 { margin-bottom: 20px; text-align: center;}
+article p { text-align: center;}
 section {margin: 5%;}
 h1 {font-weight: bold;}
 h2{font-size: 15px;}
@@ -125,7 +126,7 @@ a, a:link, a:hover, a:visited, a:active{ color:#144e64; text-decoration: underli
     color: #4B5320; 
     background-color: black; 
     margin-bottom: 15px;
-    font-size: 175px;
+    font-size: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,7 +142,7 @@ a, a:link, a:hover, a:visited, a:active{ color:#144e64; text-decoration: underli
     color: #827B60; 
     background-color:  #4B5320; 
     margin-bottom: 15px;
-    font-size: 175px;
+    font-size: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,7 +159,7 @@ a, a:link, a:hover, a:visited, a:active{ color:#144e64; text-decoration: underli
     color: black; 
     background-color: #827B60; 
     margin-bottom: 15px;
-    font-size: 175px;
+    font-size: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,7 +176,7 @@ a, a:link, a:hover, a:visited, a:active{ color:#144e64; text-decoration: underli
     color: #CD7F32; 
     background-color: #8C1717; 
     margin-bottom: 15px;
-    font-size: 175px;
+    font-size: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
